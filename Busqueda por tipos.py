@@ -26,13 +26,21 @@ def getdata_2(pokemon_data_url = ""):
 
     return pokemon_data_2
 
-Ubicación_archivo = ‘’ #Para el final hay que colocar la dirección del archivo Excel 
 
+ubicación_archivo = 'C:\\Users\\amaur\\OneDrive\\Escritorio\\PIA Progra\\Excel datos\\Excel datos.xlsx' #Para el final hay que colocar la dirección del archivo Excel 
 #Experimento con excel
 
 if os.path.exists(ubicación_archivo):
-
     #Cargar datos del Excel 
+    excel_datos = openpyxl.load_workbook(ubicación_archivo)
+    nombre_segunda_hoja = excel_datos.sheetnames[1] 
+    hoja_2 = excel_datos[nombre_segunda_hoja] 
+    excel_datos.active = hoja_2
+    for i in range(1, 10, 1):
+        lis_gene = list() 
+        for f in range(1, 19, 1):
+            lis_gene.append(hoja_2.cell(roe = i + 1, columna = f + 1).value)
+        print(lis_gene) 
 else:
     try:
         excel_datos = openpyxl.Workbook()
