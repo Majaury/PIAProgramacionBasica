@@ -69,4 +69,4 @@ else:
         excel_datos.save('Excel datos.xlsx')
         print (Numero_pokemones_por_genera)
     except(requests.exceptions.RequestException, OSError) as e:
-        print ('No se a podido conectar con la API, verifique su coneccion a internet')
+        print ('No se a podido conectar con la API, verifique su conexión a internet')
