@@ -31,13 +31,22 @@ ubicación_archivo = '' #Para el final hay que colocar la dirección del archivo
 #Experimento con excel
 if os.path.exists(ubicación_archivo):
     #Cargar datos del Excel 
+    excel_datos = load_workbook(ubicación_archivo)
+    hoja_1 = Excel_datos.active 
+    generación = list() 
+    cantidad = list() 
+    for i in range (1, 10, 1):
+        generación.append(hoja_1.cell(row = i+1, column = 2)
+        cantidad.append(hoja_1.cell(row = i+1, column = 3)   
+    print (generación) 
+    print (cantidad) 
 else:
     try:    
         excel_datos = openpyxl.Workbook()
         hoja_2 = excel_datos.create_sheet('Hoja_2', 1)
         hoja_1 = excel_datos.active
-        hoja_1.title = 'Bisqueda por generación'
-        hoja_2.title = 'Bisqueda por tipo'
+        hoja_1.title = 'Busqueda por generación'
+        hoja_2.title = 'Busqueda por tipo'
         a = hoja_1.cell(row = 11, column = 1, value = 'Total')
         b = hoja_1.cell(row = 1, column = 2, value = 'Generación')
         c = hoja_1.cell(row = 1, column = 3, value = 'Cantidad')
