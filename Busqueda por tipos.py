@@ -44,10 +44,10 @@ if os.path.exists(ubicación_archivo):
 else:
     try:
         excel_datos = openpyxl.Workbook()
-        hoja_2 = excel_datos.create_sheet(‘Hoja_2’, 1)
+        hoja_2 = excel_datos.create_sheet('Hoja_2', 1)
         hoja_2 = excel_datos.active
-        hoja_1.title = ‘Busqueda por generación’
-        hoja_2.title = ‘Busqueda por tipo’
+        hoja_1.title = 'Busqueda por generación'
+        hoja_2.title = 'Busqueda por tipo'
         a = hoja_2.cell(row = 1, columna = 1, value = 'Generación') 
         for s in range(1,10,1):
             b = hoja_2.cell(row = s + 1, columna = 1, value = s) 
@@ -56,8 +56,10 @@ else:
             data = getdata(pokemon_data_url)
             tipos_generacion = list()
             for i in range (1,19,1):
-                c = hoja_2.cell(row = 1, columna = i + 1, value = 'Tipo' i) 
+                #c = hoja_2.cell(row = 1, columna = i + 1, value = 'Tipo' i) 
                 j = str(i)
+                k = "Tipo" + j
+                c = hoja_2.cell(row = 1, columna = i + 1, value = k) 
                 pokemon_data_url_2 = (url_api_tipo + j)
                 data_2 = getdata_2(pokemon_data_url_2)
                 cont_typo = int(0)
@@ -82,8 +84,8 @@ else:
                 tipos_generacion.append(cont_typo)
                 d = hoja_2.cell(row = s + 1, columna = i + 1, value = cont_typo) 
             print("Distribucion de la", s, "generacion", tipos_generacion)
-        excel_datos.save(‘Excel datos.xlsx’)
+        excel_datos.save('Excel datos.xlsx')
     except(requests.exceptions.RequestException, OSError) as e:
-        Print (‘No se a podido conectar con la API, verifique su conexión a internet’)
+        Print ('No se a podido conectar con la API, verifique su conexión a internet')
 
  
