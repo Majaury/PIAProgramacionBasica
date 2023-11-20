@@ -32,7 +32,7 @@ ubicación_archivo = '' #Para el final hay que colocar la dirección del archivo
 if os.path.exists(ubicación_archivo):
     #Cargar datos del Excel 
     excel_datos = load_workbook(ubicación_archivo)
-    hoja_1 = Excel_datos.active 
+    hoja_1 = excel_datos.active 
     generación = list() 
     cantidad = list() 
     for i in range (1, 10, 1):
