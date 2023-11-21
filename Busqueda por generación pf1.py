@@ -71,6 +71,7 @@ if os.path.exists(ubicación_archivo):
                 w = promedio_2(Numero_pokemones_por_genera[i], total)
                 g = hoja_1.cell(row = i+2, column = 4, value = w)
             excel_datos.save('Excel datos.xlsx')
+            excel_datos.close()
             print (Numero_pokemones_por_genera)
         except(requests.exceptions.RequestException, OSError) as e:
             print ('No se a podido conectar con la API, verifique su conexión a internet')
@@ -103,6 +104,7 @@ else:
             w = promedio_2(Numero_pokemones_por_genera[i], total)
             g = hoja_1.cell(row = i+2, column = 4, value = w)
         excel_datos.save('Excel datos.xlsx')
+        excel_datos.close()
         print (Numero_pokemones_por_genera)
     except(requests.exceptions.RequestException, OSError) as e:
         print ('No se a podido conectar con la API, verifique su conexión a internet')
