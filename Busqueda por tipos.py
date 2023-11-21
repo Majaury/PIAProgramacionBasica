@@ -26,6 +26,26 @@ def getdata_2(pokemon_data_url = ""):
 
     return pokemon_data_2
 
+diccionario_tipos = {
+    '1':"Normal"
+    '2':"Lucha" 
+    '3':"Volador"
+    '4':"Veneno"
+    '5':"Tierra"
+    '6':"Roca"
+    '7':"Bicho"
+    '8':"Fantasma"
+    '9':"Acero"
+    '10'"Fuego"
+    '11':"Agua"
+    '12':"Planta"
+    '13':"Eléctrico" 
+    '14':"Psíquico"
+    '15':"Hielo"
+    '16':"Dragón"
+    '17':"Siniestro"
+    '18':"Hada" 
+} 
 
 ubicación_archivo = 'C:\\Users\\amaur\\OneDrive\\Escritorio\\PIA Progra\\Excel datos\\Excel datos.xlsx' #Para el final hay que colocar la dirección del archivo Excel 
 #Experimento con excel
@@ -61,7 +81,7 @@ if os.path.exists(ubicación_archivo):
                 for i in range (1,19,1):
                     #c = hoja_2.cell(row = 1, columna = i + 1, value = 'Tipo' i) 
                     j = str(i)
-                    k = "Tipo" + j
+                    k = diccionario_tipos.get(j, "Tipo Desconocido") 
                     c = hoja_2.cell(row = 1, columna = i + 1, value = k) 
                     pokemon_data_url_2 = (url_api_tipo + j)
                     data_2 = getdata_2(pokemon_data_url_2)
@@ -107,7 +127,7 @@ else:
             for i in range (1,19,1):
                 #c = hoja_2.cell(row = 1, columna = i + 1, value = 'Tipo' i) 
                 j = str(i)
-                k = "Tipo" + j
+                k = diccionario_tipos.get(j, "Tipo Desconocido")
                 c = hoja_2.cell(row = 1, columna = i + 1, value = k) 
                 pokemon_data_url_2 = (url_api_tipo + j)
                 data_2 = getdata_2(pokemon_data_url_2)
