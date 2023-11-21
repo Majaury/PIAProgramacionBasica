@@ -27,23 +27,23 @@ def getdata_2(pokemon_data_url = ""):
     return pokemon_data_2
 
 diccionario_tipos = {
-    '1':"Normal"
-    '2':"Lucha" 
-    '3':"Volador"
-    '4':"Veneno"
-    '5':"Tierra"
-    '6':"Roca"
-    '7':"Bicho"
-    '8':"Fantasma"
-    '9':"Acero"
-    '10'"Fuego"
-    '11':"Agua"
-    '12':"Planta"
-    '13':"Eléctrico" 
-    '14':"Psíquico"
-    '15':"Hielo"
-    '16':"Dragón"
-    '17':"Siniestro"
+    '1':"Normal", 
+    '2':"Lucha", 
+    '3':"Volador", 
+    '4':"Veneno", 
+    '5':"Tierra", 
+    '6':"Roca", 
+    '7':"Bicho", 
+    '8':"Fantasma", 
+    '9':"Acero", 
+    '10'"Fuego", 
+    '11':"Agua", 
+    '12':"Planta", 
+    '13':"Eléctrico", 
+    '14':"Psíquico", 
+    '15':"Hielo", 
+    '16':"Dragón", 
+    '17':"Siniestro", 
     '18':"Hada" 
 } 
 
@@ -108,6 +108,7 @@ if os.path.exists(ubicación_archivo):
                     d = hoja_2.cell(row = s + 1, columna = i + 1, value = cont_typo) 
                 print("Distribucion de la", s, "generacion", tipos_generacion)
             excel_datos.save('Excel datos.xlsx')
+            excel_datos.close()
         except(requests.exceptions.RequestException, OSError) as e:
             print ('No se a podido conectar con la API, verifique su conexión a internet')      
 else:
