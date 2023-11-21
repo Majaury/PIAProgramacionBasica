@@ -67,7 +67,7 @@ if os.path.exists(ubicación_archivo):
     else:
         try:
             excel_datos = openpyxl.Workbook()
-            hoja_2 = excel_datos.create_sheet('Hoja_2', 1)
+            #hoja_2 = excel_datos.create_sheet('Hoja_2', 1)
             hoja_2 = excel_datos.active
             #hoja_1.title = 'Busqueda por generación'
             hoja_2.title = 'Busqueda por tipo'
@@ -154,6 +154,7 @@ else:
                 d = hoja_2.cell(row = s + 1, columna = i + 1, value = cont_typo) 
             print("Distribucion de la", s, "generacion", tipos_generacion)
         excel_datos.save('Excel datos.xlsx')
+        excel_datos.close()
     except(requests.exceptions.RequestException, OSError) as e:
         print ('No se a podido conectar con la API, verifique su conexión a internet')
 
