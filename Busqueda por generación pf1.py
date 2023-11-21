@@ -34,8 +34,9 @@ if os.path.exists(ubicación_archivo):
     excel_datos = openpyxl.load_workbook(ubicación_archivo)
     hoja_1 = excel_datos.active 
     seguro = '100%'
+    verificación = hoja_1['D11'].value
     if verificación == seguro:
-        verificación = hoja_1['D11'].value
+        #verificación = hoja_1['D11'].value
         generación = list() 
         cantidad = list() 
         for i in range (1, 10, 1):
